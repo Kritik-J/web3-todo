@@ -35,6 +35,7 @@ const TaskContainer = () => {
           type="text"
           placeholder="Add a task"
           maxLength="50"
+          required
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
