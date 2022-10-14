@@ -16,9 +16,8 @@ $ npm install
 # Install dependencies in the client directory
 $ cd client
 $ npm install
-```
 
-````
+```
 
 ## Usage
 
@@ -27,8 +26,7 @@ Start the react dev server.
 ```sh
 $ cd client
 $ npm start
-  Starting the development server...
-````
+```
 
 ```sh
 $ cd truffle
