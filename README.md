@@ -38,9 +38,10 @@ $ truffle migrate
 
 > Note: You will need to create a .env file in the truffle directory of the project. This file will contain your environment variables.
 
-- MNEMONIC
-- INFURA_PROJECT_ID
+`MNEMONIC`
+
+`INFURA_PROJECT_ID`
 
 > Note: You will need to create a .env file in the client directory of the project. This file will contain your environment variables.
 
-- REACT_APP_INFURA_PROJECT_ID
+`REACT_APP_INFURA_PROJECT_ID`
