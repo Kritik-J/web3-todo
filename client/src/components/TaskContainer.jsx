@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useTodo } from "../contexts/TodoContext";
 import TaskItem from "./TaskItem";
+import Jazzicon, { jsNumberForAddress } from "react-jazzicon";
 
 const TaskContainer = () => {
   const { user, todos, addTask, getAllTasks } = useTodo();
@@ -21,9 +22,11 @@ const TaskContainer = () => {
   return (
     <TaskSection>
       <TaskHeader>
-        <h2>
-          Hello, <span>{user.slice(0, 5) + "..." + user.slice(-3)}</span>
-        </h2>
+        <div className="address">
+          <Jazzicon diameter={32} seed={jsNumberForAddress(user)} />
+
+          <h2>{user.slice(0, 5) + "..." + user.slice(-3)}</h2>
+        </div>
 
         <h2>
           <span>{todos && todos.length}</span> Tasks
@@ -83,6 +86,19 @@ const TaskHeader = styled.div`
     margin-bottom: 0.6rem;
   }
 
+  .address {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--secondary);
+      font-weight: 400;
+      margin-left: 1rem;
+      margin-top: 0.2rem;
+    }
+  }
+
   span {
     color: var(--secondary);
   }
@@ -92,6 +108,12 @@ const TaskHeader = styled.div`
 
     h2 {
       font-size: 1.6rem;
+    }
+
+    .address {
+      h2 {
+        font-size: 1.6rem;
+      }
     }
   }
 `;
