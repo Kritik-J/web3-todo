@@ -91,7 +91,7 @@ export const TodoProvider = ({ children }) => {
           setTodos([...todos, task]);
         })
         .catch((err) => {
-          console.log(err);
+          setError(err.message);
         });
 
       setLoading(false);
@@ -152,7 +152,7 @@ export const TodoProvider = ({ children }) => {
           setTodos(todos.filter((todo) => todo.id !== id));
         })
         .catch((err) => {
-          console.log(err);
+          setError(err.message);
         });
 
       setLoading(false);

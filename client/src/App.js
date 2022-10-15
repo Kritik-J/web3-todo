@@ -4,6 +4,8 @@ import TaskContainer from "./components/TaskContainer";
 import { useTodo } from "./contexts/TodoContext";
 import React from "react";
 import Loader from "./components/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { connectWallet, loading, error, isAuth, clearError, loadwallet } =
@@ -11,6 +13,17 @@ function App() {
 
   React.useEffect(() => {
     if (error) {
+      toast.error(error, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
       setTimeout(() => {
         clearError();
       }, 3000);
@@ -24,6 +37,19 @@ function App() {
   return (
     <div className="App">
       <AppScreen>
+        <ToastContainer
+          position="top-left"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+
         {loading && <Loader />}
 
         {isAuth ? (
@@ -31,8 +57,6 @@ function App() {
         ) : (
           <ConnectWallet onClick={connectWallet}>Connect Wallet</ConnectWallet>
         )}
-
-        {error && <h1>{error}</h1>}
       </AppScreen>
     </div>
   );
